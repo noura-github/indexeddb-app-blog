@@ -1,8 +1,11 @@
 // Initialize the application on DOM ready
 $(document).ready(function () {
-    //initializeDatabase();
-    //queryCompanyDB_getAllEmployees();
-    //queryCompanyDB_getAllDepartments();
+    initializeDatabase();
+
+    // Examples of how you can query an IndexedDB database
+    // Call these functions after the database is initialized
+    queryCompanyDB_getAllEmployees();
+    queryCompanyDB_getAllDepartments();
     queryCompanyDB_getEmployeeById(1);
 });
 
