@@ -2,6 +2,7 @@ from flask import Flask, jsonify, render_template
 
 app = Flask(__name__)
 
+# Sample data
 company_data = {
     "companies": [
         {"id": 1, "name": "TechCorp"},
@@ -14,21 +15,28 @@ company_data = {
         {"id": 4, "name": "HR", "companyId": 2}
     ],
     "employees": [
-        {"id": 1, "firstname": "Alice", "lastname": "Smith", "email": "alice@techcorp.com", "departmentId": 1, "departmentName": "Engineering", "companyName": "TechCorp"},
-        {"id": 2, "firstname": "Bob", "lastname": "Brown", "email": "bob@techcorp.com", "departmentId": 1, "departmentName": "Engineering", "companyName": "TechCorp"},
-        {"id": 3, "firstname": "Charlie", "lastname": "Davis", "email": "charlie@techcorp.com", "departmentId": 2, "departmentName": "Marketing", "companyName": "TechCorp"},
-        {"id": 4, "firstname": "David", "lastname": "Wilson", "email": "david@techmicro.com", "departmentId": 3, "departmentName": "Sales", "companyName": "TechMicro"},
-        {"id": 5, "firstname": "Mary", "lastname": "Johnson", "email": "mary@techmicro.com", "departmentId": 4, "departmentName": "HR", "companyName": "TechMicro"}
+        {"id": 1, "firstname": "Alice", "lastname": "Smith", "email": "alice@techcorp.com", "departmentId": 1,
+         "departmentName": "Engineering", "companyName": "TechCorp"},
+        {"id": 2, "firstname": "Bob", "lastname": "Brown", "email": "bob@techcorp.com", "departmentId": 1,
+         "departmentName": "Engineering", "companyName": "TechCorp"},
+        {"id": 3, "firstname": "Charlie", "lastname": "Davis", "email": "charlie@techcorp.com", "departmentId": 2,
+         "departmentName": "Marketing", "companyName": "TechCorp"},
+        {"id": 4, "firstname": "David", "lastname": "Wilson", "email": "david@techmicro.com", "departmentId": 3,
+         "departmentName": "Sales", "companyName": "TechMicro"},
+        {"id": 5, "firstname": "Mary", "lastname": "Johnson", "email": "mary@techmicro.com", "departmentId": 4,
+         "departmentName": "HR", "companyName": "TechMicro"}
     ]
 }
 
 
+# Route to fetch data
 @app.route('/data', methods=['GET'])
 def get_data():
     # Sample data to send to the frontend
     return jsonify(company_data)
 
 
+# Route for the home page
 @app.route('/')
 def index():
     return render_template('index.html')
